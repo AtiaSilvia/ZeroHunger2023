@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "RestuarantProfile";
+    Layout = "~/Views/Shared/_RestaurantLayout.cshtml";
+}
+
+<h2>RestuarantProfile</h2>
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Password</th>
+
+    </tr>
+
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.Name</td>
+        <td>@Model.Phone</td>
+        <td>@Model.Address</td>
+        <td>@Model.Password</td>
+
+
+    </tr>
+
+
+
+</table>

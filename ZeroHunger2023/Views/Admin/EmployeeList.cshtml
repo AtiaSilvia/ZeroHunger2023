@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>EmployeeList</h2>
+
+
+<br />
+<a class="btn btn-warning" href="/Admin/EmployeeAdd">ADD</a>
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Date Of birth</th>
+      
+    </tr>
+
+    @foreach (var data in Model)
+    {
+        <tr>
+            <td>@data.ID</td>
+            <td>@data.Name</td>
+            <td>@data.Phone</td>
+            <td>@data.DateOfBirth</td>
+            
+            <td><a class="btn btn-secondary" href="/Admin/EmployeeEdit/@data.ID">Edit</a></td>
+            <td><a class="btn btn-danger" href="/Admin/EmployeeDelete/@data.ID">Delete</a></td>
+        </tr>
+
+
+    }
+
+</table>

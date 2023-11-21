@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "RequestAdd";
+    Layout = "~/Views/Shared/_RestaurantLayout.cshtml";
+}
+
+<h2>RequestAdd</h2>
+
+
+<br />
+<form action="" method="post">
+
+
+    <label for="">Food Name</label>
+    <input type="text" class="form-control" name="FoodName">
+    @Html.ValidationMessage("FoodName")
+
+    <label for="">Food Quantity</label>
+    <input type="text" class="form-control" name="FoodQuantity">
+    @Html.ValidationMessage("FoodQuantity")
+
+    <label for="">Preserve Time</label>
+    <input type="datetime" class="form-control" name="PreserveTime">
+    @Html.ValidationMessage("PreserveTime")
+
+    <input hidden type="text" class="form-control" name="RestaurantID" value="@Session["ID"]">
+
+
+    <input hidden type="text" class="form-control" name="Status" value="Pending">
+
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+  

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>EmployeeAdd</h2>
+
+<br />
+<form action="" method="post">
+
+
+    <label for="">Name</label>
+    <input type="text" class="form-control" name="Name">
+    @Html.ValidationMessage("Name")
+
+    <label for="">Phone</label>
+    <input type="text" class="form-control" name="Phone">
+    @Html.ValidationMessage("Phone")
+
+    <label for="">Date Of Birth</label>
+    <input type="date" class="form-control" name="DateOfBirth">
+    @Html.ValidationMessage("DateOfBirth")
+
+    <label for="">Password</label>
+    <input type="password" class="form-control" name="Password">
+    @Html.ValidationMessage("Password")
+
+
+
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

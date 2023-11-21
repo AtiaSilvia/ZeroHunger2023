@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "AcceptedRequestList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>AcceptedRequestList</h2>
+
+<br />
+<a class="btn btn-warning" href="/Admin/RequestAdd">ADD</a>
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Food Name</th>
+        <th>Food Quantity</th>
+        <th>Preserve Time</th>
+        <th>Restaurant ID</th>
+        <th>Employee Name</th>
+        <th>Status</th>
+
+    </tr>
+
+    @foreach (var data in Model)
+    {
+        <tr>
+            <td>@data.ID</td>
+            <td>@data.FoodName</td>
+            <td>@data.FoodQuantity</td>
+            <td>@data.PreserveTime</td>
+            <td>@data.RestaurantID</td>
+            <td>@data.Employee.Name</td>
+            <td>@data.Status</td>
+
+        </tr>
+
+
+    }
+
+</table>

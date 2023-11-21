@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>EmployeeEdit</h2>
+
+<br />
+
+<form action="" method="post">
+
+    <label for="">Name</label>
+    <input type="text" class="form-control" value="@Model.Name" name="Name">
+
+    <label for="">Phone</label>
+    <input type="text" class="form-control" value="@Model.Phone" name="Phone">
+
+    <label for="">Date Of Birth</label>
+    <input type="date" class="form-control" value="@Model.DateOfBirth" name="DateOfBirth">
+
+    <label for="">Password</label>
+    <input type="password" class="form-control" value="@Model.Password" name="Password">
+
+
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

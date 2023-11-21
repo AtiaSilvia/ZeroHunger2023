@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "RequestList";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h2>RequestList</h2>
+
+<br />
+<a class="btn btn-warning" href="/Admin/RequestAdd">ADD</a>
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Food Name</th>
+        <th>Food Quantity</th>
+        <th>Preserve Time</th>
+        <th>Restaurant ID</th>
+        <th>Status</th>
+
+    </tr>
+
+    @foreach (var data in Model.Requests)
+    {
+        <tr>
+            <td>@data.ID</td>
+            <td>@data.FoodName</td>
+            <td>@data.FoodQuantity</td>
+            <td>@data.PreserveTime</td>
+            <td>@data.RestaurantID</td>          
+            <td>@data.Status</td>
+
+            <td><a href="/Employee/EmployeeRequestDetails/@data.ID" class="btn btn-dark">View Details</a></td>
+        </tr>
+
+
+    }
+
+</table>

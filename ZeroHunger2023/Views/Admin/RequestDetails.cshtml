@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "RequestDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>RequestDetails</h2>
+
+<form action="" method="post">
+
+    <label>ID</label>
+    <input type="text" name="ID" class="form-control" value="@Model.ID" />
+
+    <label>FoodName</label>
+    <input type="text" name="FoodName" class="form-control" value="@Model.FoodName" />
+
+    <label>FoodQuantity</label>
+    <input type="text" name="FoodQuantity" class="form-control" value="@Model.FoodQuantity" />
+
+    <label>PreserveTime</label>
+    <input type="datetime" name="PreserveTime" class="form-control" value="@Model.PreserveTime" />
+
+    <label>RestaurantID</label>
+    <input type="text" name="RestaurantID" class="form-control" value="@Model.RestaurantID" />
+
+    <label>Status</label>
+    <input type="text" name="Status" class="form-control" value="@Model.Status" />
+
+    <label>Employee Choose</label>
+    <select name="EmployeeID">
+        <option selected>Employee Select</option>
+        @foreach (var emp in ViewBag.employee)
+        {
+            <option value="@emp.ID">@emp.Name</option>
+        }
+    </select>
+
+    <input type="submit" value="Accept" class="btn btn-dark" />
+
+</form>
+
+<a href="/Admin/RejecetRequestList/@Model.ID" class="btn btn-danger">Reject</a>
