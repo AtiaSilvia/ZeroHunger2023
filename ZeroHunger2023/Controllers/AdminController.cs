@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
@@ -52,7 +53,13 @@ namespace ZeroHunger2023.Controllers
         {
             var db = new ZeroHunger2023Entities();
             var data = db.Employees.ToList();
-            return View(data);
+
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Employee, EmployeeDTO>();
+            });
+            var mapper = new Mapper(config);
+            var data2 = mapper.Map<List<EmployeeDTO>>(data);
+            return View(data2);
         }
 
         [HttpGet]
@@ -146,7 +153,12 @@ namespace ZeroHunger2023.Controllers
         {
             var db = new ZeroHunger2023Entities();
             var data = db.Restaurants.ToList();
-            return View(data);
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Restaurant, RestuarentDTO>();
+            });
+            var mapper = new Mapper(config);
+            var data2 = mapper.Map<List<RestuarentDTO>>(data);
+            return View(data2);
         }
 
         [HttpGet]
@@ -225,7 +237,7 @@ namespace ZeroHunger2023.Controllers
 
             var db = new ZeroHunger2023Entities();
             var data = db.Requests.ToList();
-           
+            
             return View(data);
         }
         public ActionResult RejecetRequestList(int ID)
@@ -255,10 +267,14 @@ namespace ZeroHunger2023.Controllers
         [HttpPost]
         public ActionResult RequestDetails(Request request)
         {
+            int reqID = request.ID;
             request.Status = "Accepted";
            
             var db = new ZeroHunger2023Entities();
             db.Requests.Add(request);
+            db.SaveChanges();
+            var temp = db.TemRequests.Find(reqID);
+            db.TemRequests.Remove(temp);
             db.SaveChanges();
 
             return RedirectToAction("AcceptedRequestList");

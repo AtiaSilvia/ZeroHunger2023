@@ -8,6 +8,7 @@ namespace ZeroHunger2023.DTO
 {
     public class RestuarentDTO
     {
+        public int ID { get; set; }
         [Required]
         public string Name { get; set; }
 
